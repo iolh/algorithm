@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateNearlyOrderedArray = exports.copyIntArray = exports.testSort = exports.printArray = exports.generateRandomArray = void 0;
+exports.generateNearlyOrderedArray = exports.copyIntArray = exports.testSort = exports.printArray = exports.generateRandomArray = exports.getRandomIntInclusive = void 0;
 //生成闭区间随机数
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
 }
+exports.getRandomIntInclusive = getRandomIntInclusive;
 //生成有n个元素的随机数组，每个元素的随机范围为[rangeL,rangeR]
 function generateRandomArray(n, rangeL, rangeR) {
     let arr = new Array(n);
