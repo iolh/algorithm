@@ -10,6 +10,7 @@ function getRandomIntInclusive(min, max) {
 exports.getRandomIntInclusive = getRandomIntInclusive;
 //生成有n个元素的随机数组，每个元素的随机范围为[rangeL,rangeR]
 function generateRandomArray(n, rangeL, rangeR) {
+    console.log('乱序数组 - 数据规模：' + n);
     let arr = new Array(n);
     console.assert(rangeL <= rangeR, 'rangeL 必须小于等于 rangeR！');
     for (let i = 0; i < n; i++) {
@@ -20,13 +21,19 @@ function generateRandomArray(n, rangeL, rangeR) {
 exports.generateRandomArray = generateRandomArray;
 //生成近乎有序数组
 function generateNearlyOrderedArray(n, swapTimes) {
+    if (swapTimes) {
+        console.log('近乎有序 - 数据规模：' + n);
+    }
+    else {
+        console.log('完全有序 - 数据规模：' + n);
+    }
     let arr = new Array(n);
     for (let i = 0; i < n; i++) {
         arr[i] = i;
     }
     for (let i = 0; i < swapTimes; i++) {
-        let posx = getRandomIntInclusive(0, swapTimes);
-        let posy = getRandomIntInclusive(0, swapTimes);
+        let posx = getRandomIntInclusive(0, n - 1);
+        let posy = getRandomIntInclusive(0, n - 1);
         [arr[posx], arr[posy]] = [arr[posy], arr[posx]];
     }
     return arr;

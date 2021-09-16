@@ -11,6 +11,7 @@ function generateRandomArray(
   rangeL: number,
   rangeR: number
 ): number[] {
+  console.log('乱序数组 - 数据规模：' + n);
   let arr = new Array(n);
   console.assert(rangeL <= rangeR, 'rangeL 必须小于等于 rangeR！');
   for (let i = 0; i < n; i++) {
@@ -21,13 +22,18 @@ function generateRandomArray(
 
 //生成近乎有序数组
 function generateNearlyOrderedArray(n: number, swapTimes: number) {
+  if (swapTimes) {
+    console.log('近乎有序 - 数据规模：' + n);
+  } else {
+    console.log('完全有序 - 数据规模：' + n);
+  }
   let arr = new Array(n);
   for (let i = 0; i < n; i++) {
     arr[i] = i;
   }
   for (let i = 0; i < swapTimes; i++) {
-    let posx: number = getRandomIntInclusive(0, swapTimes);
-    let posy: number = getRandomIntInclusive(0, swapTimes);
+    let posx: number = getRandomIntInclusive(0, n - 1);
+    let posy: number = getRandomIntInclusive(0, n - 1);
     [arr[posx], arr[posy]] = [arr[posy], arr[posx]];
   }
   return arr;

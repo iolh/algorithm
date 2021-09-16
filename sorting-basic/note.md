@@ -36,10 +36,6 @@
 
 ![](note.assets/Bubble_sort_animation.gif)
 
-
-
-
-
 ## 希尔排序
 
 **希尔排序**（Shellsort），也称**递减增量排序算法**，是[插入排序](https://zh.wikipedia.org/wiki/插入排序)的一种更高效的改进版本。希尔排序是非稳定排序算法。
@@ -48,9 +44,9 @@
 
 ![希尔排序](note.assets/330px-Shell_sorting_algorithm_color_bars.svg.png)
 
-以23, 10, 4, 1的步长序列进行希尔排序：
+以 23, 10, 4, 1 的步长序列进行希尔排序：
 
 ![](note.assets/Sorting_shellsort_anim-1614090854791.gif)
 
-
-
+冒泡排序、插入排序、归并排序、基数排序是稳定的排序算法，
+选择排序、快速排序、希尔排序、堆排序是不稳定的排序算法。

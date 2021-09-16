@@ -1,9 +1,25 @@
 "use strict";
+// O(n^3/2)
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shellSort2 = exports.shellSort = void 0;
-function shellSort(arr) {
+exports.shellSort1 = exports.shellSort0 = void 0;
+function shellSort0(arr) {
+    const { length } = arr;
+    let j;
+    for (let gap = Math.floor(length / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (let i = gap; i < length; i++) {
+            let tmp = arr[i];
+            for (j = i; j >= gap && tmp < arr[j - gap]; j -= gap) {
+                arr[j] = arr[j - gap];
+            }
+            arr[j] = tmp;
+        }
+    }
+}
+exports.shellSort0 = shellSort0;
+function shellSort1(arr) {
     const { length } = arr;
     let h = 1;
+    // 4 13 40 121
     while (h < length / 3) {
         h = 3 * h + 1;
     }
@@ -19,21 +35,13 @@ function shellSort(arr) {
         h = Math.floor(h / 3);
     }
 }
-exports.shellSort = shellSort;
-function shellSort2(arr) {
-    const { length } = arr;
-    let j;
-    for (let gap = Math.floor(length / 2); gap > 0; gap = Math.floor(gap / 2)) {
-        for (let i = gap; i < length; i++) {
-            let tmp = arr[i];
-            for (j = i; j >= gap && tmp < arr[j - gap]; j -= gap) {
-                arr[j] = arr[j - gap];
-            }
-            arr[j] = tmp;
-        }
-    }
-}
-exports.shellSort2 = shellSort2;
+exports.shellSort1 = shellSort1;
+// 1.什么是希尔排序？
+// 缩小增量排序，是直接插入排序算法的优化
+// 2.要比较多少次？
+// 缩小增量直到为 1
+// 3.每次缩小增量要比较多少次，这个边界是什么？
+// 根据步长计算
 // 本质上讲，希尔排序算法是直接插入排序算法的一种改进，
 // 减少了其复制的次数，速度要快很多。
 // 原因是，当n值很大时数据项每一趟排序需要移动的个数很少，但数据项的距离很长。
