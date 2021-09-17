@@ -1,6 +1,6 @@
 // O(n^3/2)
 
-export function shellSort0<T>(arr: T[]) {
+export function shellSort0<T>(arr: T[]): void {
   const { length } = arr;
   let j: number;
   for (let gap = Math.floor(length / 2); gap > 0; gap = Math.floor(gap / 2)) {
@@ -14,7 +14,7 @@ export function shellSort0<T>(arr: T[]) {
   }
 }
 
-export function shellSort1<T>(arr: T[]) {
+export function shellSort1<T>(arr: T[]): void {
   const { length } = arr;
   let h = 1;
   // 4 13 40 121

@@ -8,6 +8,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
 }
 exports.getRandomIntInclusive = getRandomIntInclusive;
+// Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min)
 //生成有n个元素的随机数组，每个元素的随机范围为[rangeL,rangeR]
 function generateRandomArray(n, rangeL, rangeR) {
     console.log('乱序数组 - 数据规模：' + n);

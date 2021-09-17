@@ -2,7 +2,7 @@
 
 import { getRandomIntInclusive } from './helper';
 
-// 随机化快排
+// 随机化快排 用于优化近乎有序数组
 
 function __partition0<T>(arr: T[], l: number, r: number): number {
   const random = getRandomIntInclusive(l, r);
@@ -37,7 +37,7 @@ export function quickSort0<T>(arr: T[]): void {
   __quickSort0(arr, 0, arr.length - 1);
 }
 
-// 双路快排
+// 双路快排 用于优化大量重复元素数组 置换到两边 保持分区平衡
 
 function __partition1<T>(arr: T[], l: number, r: number): number {
   const random = getRandomIntInclusive(l, r);
@@ -73,7 +73,8 @@ export function quickSort1<T>(arr: T[]): void {
   __quickSort1(arr, 0, arr.length - 1);
 }
 
-// 三路快排
+// 三路快排 进一步优化大量重复元素数组，开一个区间，不用置换，
+// 并且 都等于v已经有序，减少 partition 序列的长度
 
 function __quickSort2<T>(arr: T[], l: number, r: number): void {
   if (l >= r) return;
@@ -110,6 +111,8 @@ function __quickSort2<T>(arr: T[], l: number, r: number): void {
 
 // function __quickSort2<T>(arr: T[], l: number, r: number) {
 //   if (l >= r) return;
+//   const random = getRandomIntInclusive(l, r);
+//   [arr[l], arr[random]] = [arr[random], arr[l]];
 //   let e = arr[l];
 //   let i = l - 1; // arr[l,...i] < e 初始为空
 //   let j = r + 1; // arr[j,...r] > e 初始为空
@@ -199,3 +202,21 @@ export function quickSort2<T>(arr: T[]): void {
 // }, 0);
 
 //尾调用
+
+function __selectNThLargest<T>(arr: T[], l: number, r: number, n: number): T {
+  const p = __partition1(arr, l, r); // 采用双路快排
+  if (n < p) {
+    return __selectNThLargest(arr, l, p - 1, n);
+  } else if (n > p) {
+    return __selectNThLargest(arr, p + 1, r, n);
+  }
+  console.log('\n' + '======== 第n大元素 ========' + '\n');
+  console.log('Array:', arr);
+  console.log(`第${arr.length - n}大元素:`, arr[p]);
+  return arr[p];
+}
+
+export function selectNThLargest<T>(arr: T[], n: number): T {
+  const { length } = arr;
+  return __selectNThLargest(arr, 0, length - 1, length - n);
+}

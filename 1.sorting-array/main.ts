@@ -17,10 +17,15 @@ import {
 import { selectionSort0, selectionSort1 } from './2.selection-sort';
 import { insertionSort0, insertionSort1 } from './3.insertion-sort';
 import { shellSort0, shellSort1 } from './4.shell-sort';
-import { mergeSort, megeSortBU } from './5.merge-sort';
-import { quickSort0, quickSort1, quickSort2 } from './6.quick-sort';
+import { mergeSort, megeSortBU, inversionCount } from './5.merge-sort';
+import {
+  quickSort0,
+  quickSort1,
+  quickSort2,
+  selectNThLargest,
+} from './6.quick-sort';
 
-(function main(): void {
+function testSortUses() {
   function testBubbleSort() {
     console.log('======== 冒泡排序 ========' + '\n');
     testSort('普通 Bubble Sort', bubbleSort0, arr);
@@ -78,8 +83,7 @@ import { quickSort0, quickSort1, quickSort2 } from './6.quick-sort';
     testSort('Merge Sort 递归法', mergeSort, arr0);
     testSort('Quik Sort 2路快排', quickSort1, arr1);
   }
-
-  const n = 1000000;
+  const n = 5000000;
   const arr = generateRandomArray(n, 0, n); //乱序数组
   // const arr = generateNearlyOrderedArray(n, 10); //近乎有序
   // const arr = generateNearlyOrderedArray(n, 0); //完全有序
@@ -100,8 +104,30 @@ import { quickSort0, quickSort1, quickSort2 } from './6.quick-sort';
   // testMergeSort();
   // testQuikSort();
   testAdvancedSort();
-})();
+}
+
+// ==== 排序问题 ====
+testSortUses();
+
+function testOtherUses() {
+  const n = 5;
+  const arr0 = generateRandomArray(n, 0, n);
+  const arr1 = copyIntArray(arr0);
+
+  // 归并排序 - 逆序对
+  inversionCount(arr0);
+
+  // 快速排序 - 第n大
+  selectNThLargest(arr1, 2);
+}
+
+// ==== 延伸问题 ====
+// testOtherUses();
 
 // 逆序对 归并算法
 
 // 第n大的元素
+
+// [3, 2, 1];
+
+// 未涉及排序算法：计数排序、桶排序、基数排序

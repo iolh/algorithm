@@ -1,9 +1,9 @@
 "use strict";
 // O(nlogn)
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.quickSort2 = exports.quickSort1 = exports.quickSort0 = void 0;
+exports.selectNThLargest = exports.quickSort2 = exports.quickSort1 = exports.quickSort0 = void 0;
 const helper_1 = require("./helper");
-// 随机化快排
+// 随机化快排 用于优化近乎有序数组
 function __partition0(arr, l, r) {
     const random = helper_1.getRandomIntInclusive(l, r);
     [arr[l], arr[random]] = [arr[random], arr[l]];
@@ -34,7 +34,7 @@ function quickSort0(arr) {
     __quickSort0(arr, 0, arr.length - 1);
 }
 exports.quickSort0 = quickSort0;
-// 双路快排
+// 双路快排 用于优化大量重复元素数组 置换到两边 保持分区平衡
 function __partition1(arr, l, r) {
     const random = helper_1.getRandomIntInclusive(l, r);
     [arr[l], arr[random]] = [arr[random], arr[l]];
@@ -68,7 +68,8 @@ function quickSort1(arr) {
     __quickSort1(arr, 0, arr.length - 1);
 }
 exports.quickSort1 = quickSort1;
-// 三路快排
+// 三路快排 进一步优化大量重复元素数组，开一个区间，不用置换，
+// 并且 都等于v已经有序，减少 partition 序列的长度
 function __quickSort2(arr, l, r) {
     if (l >= r)
         return;
@@ -100,6 +101,8 @@ function __quickSort2(arr, l, r) {
 }
 // function __quickSort2<T>(arr: T[], l: number, r: number) {
 //   if (l >= r) return;
+//   const random = getRandomIntInclusive(l, r);
+//   [arr[l], arr[random]] = [arr[random], arr[l]];
 //   let e = arr[l];
 //   let i = l - 1; // arr[l,...i] < e 初始为空
 //   let j = r + 1; // arr[j,...r] > e 初始为空
@@ -176,3 +179,21 @@ exports.quickSort2 = quickSort2;
 //   __quickSort(arr, p + 1, r);
 // }, 0);
 //尾调用
+function __selectNThLargest(arr, l, r, n) {
+    const p = __partition1(arr, l, r); // 采用双路快排
+    if (n < p) {
+        return __selectNThLargest(arr, l, p - 1, n);
+    }
+    else if (n > p) {
+        return __selectNThLargest(arr, p + 1, r, n);
+    }
+    console.log('\n' + '======== 第n大元素 ========' + '\n');
+    console.log('Array:', arr);
+    console.log(`第${arr.length - n}大元素:`, arr[p]);
+    return arr[p];
+}
+function selectNThLargest(arr, n) {
+    const { length } = arr;
+    return __selectNThLargest(arr, 0, length - 1, length - n);
+}
+exports.selectNThLargest = selectNThLargest;
