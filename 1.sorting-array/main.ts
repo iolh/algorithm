@@ -121,7 +121,7 @@ function testOtherUses() {
   selectNThLargest(arr1, 2);
 }
 
-// ==== 延伸问题 ====
+// ==== 衍生问题 ====
 // testOtherUses();
 
 // 逆序对 归并算法

@@ -89,7 +89,7 @@ function testOtherUses() {
     // 快速排序 - 第n大
     _6_quick_sort_1.selectNThLargest(arr1, 2);
 }
-// ==== 延伸问题 ====
+// ==== 衍生问题 ====
 // testOtherUses();
 // 逆序对 归并算法
 // 第n大的元素
