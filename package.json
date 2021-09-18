@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "test-01": "node js/1.sorting-array/main.js",
-    "test-02": "node js/2.sorting-heap/main.js"
+    "test-02": "node js/2.sorting-heap/main.js",
+    "test-03": "node js/3.binary-search-tree/main.js"
   },
   "repository": {
     "type": "git",
