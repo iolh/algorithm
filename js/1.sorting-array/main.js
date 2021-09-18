@@ -7,6 +7,7 @@ const _3_insertion_sort_1 = require("./3.insertion-sort");
 const _4_shell_sort_1 = require("./4.shell-sort");
 const _5_merge_sort_1 = require("./5.merge-sort");
 const _6_quick_sort_1 = require("./6.quick-sort");
+const _2_heap_sort_1 = require("../2.sorting-heap/2.heap-sort");
 function testSortUses() {
     function testBubbleSort() {
         console.log('======== 冒泡排序 ========' + '\n');
@@ -57,6 +58,9 @@ function testSortUses() {
     function testAdvancedSort() {
         helper_1.testSort('Merge Sort 递归法', _5_merge_sort_1.mergeSort, arr0);
         helper_1.testSort('Quik Sort 2路快排', _6_quick_sort_1.quickSort1, arr1);
+        helper_1.testSort('Heap Sort 1', _2_heap_sort_1.heapSort1, arr2);
+        helper_1.testSort('Heap Sort 2', _2_heap_sort_1.heapSort2, arr3);
+        helper_1.testSort('Heap Sort 3', _2_heap_sort_1.heapSort3, arr4);
     }
     const n = 5000000;
     const arr = helper_1.generateRandomArray(n, 0, n); //乱序数组

@@ -24,6 +24,7 @@ import {
   quickSort2,
   selectNThLargest,
 } from './6.quick-sort';
+import { heapSort1, heapSort2, heapSort3 } from '../2.sorting-heap/2.heap-sort';
 
 function testSortUses() {
   function testBubbleSort() {
@@ -82,6 +83,10 @@ function testSortUses() {
   function testAdvancedSort() {
     testSort('Merge Sort 递归法', mergeSort, arr0);
     testSort('Quik Sort 2路快排', quickSort1, arr1);
+    testSort('Heap Sort 1', heapSort1, arr2);
+    testSort('Heap Sort 2', heapSort2, arr3);
+    testSort('Heap Sort 3', heapSort3, arr4);
+
   }
   const n = 5000000;
   const arr = generateRandomArray(n, 0, n); //乱序数组

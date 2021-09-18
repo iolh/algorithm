@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
-    "test": "node js/main.js"
+    "test-01": "node js/1.sorting-array/main.js",
+    "test-02": "node js/2.sorting-heap/main.js"
   },
   "repository": {
     "type": "git",
