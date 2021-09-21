@@ -1,0 +1,3 @@
+"use strict";
+// 217: https://leetcode-cn.com/problems/contains-duplicate/
+function containsDuplicate(nums) { }

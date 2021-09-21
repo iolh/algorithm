@@ -6,15 +6,16 @@ const helper_1 = require("./helper");
 // 数组实现堆
 function testMaxHeap() {
     const maxheap = new _1_max_heap_1.MaxHeap();
-    const arr = [];
-    for (let i = 0; i < 10; i++) {
-        const random = Math.floor(Math.random() * 100);
-        arr.push(random);
+    const arr = [5, 11, 7, 2, 3, 17];
+    for (let i = 0; i < arr.length; i++) {
+        // const random = Math.floor(Math.random() * 100);
+        // arr.push(random);
         // 最大堆入队
-        maxheap.insert(random);
+        // maxheap.insert(random);
+        maxheap.insert(arr[i]);
     }
-    console.log('======== 原数组 ========' + '\n');
-    console.log(arr);
+    // console.log('======== 原数组 ========' + '\n');
+    // console.log(arr);
     maxheap.testPrint();
     console.log('\n' + '======== 堆出队顺序 ========' + '\n');
     while (!maxheap.isEmpty()) {
@@ -22,7 +23,7 @@ function testMaxHeap() {
         console.log(maxheap.extractMax());
     }
 }
-// testMaxHeap();
+testMaxHeap();
 // 堆排序
 function testHeapSort() {
     const n = 1000000;
@@ -33,4 +34,4 @@ function testHeapSort() {
     helper_1.testSort('Heap Sort 2', _2_heap_sort_1.heapSort2, arr);
     helper_1.testSort('Heap Sort 3', _2_heap_sort_1.heapSort3, arr);
 }
-testHeapSort();
+// testHeapSort();

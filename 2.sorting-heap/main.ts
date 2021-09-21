@@ -9,16 +9,17 @@ import {
 // 数组实现堆
 function testMaxHeap() {
   const maxheap = new MaxHeap();
-  const arr = [];
+  const arr = [5, 11, 7, 2, 3, 17];
 
-  for (let i = 0; i < 10; i++) {
-    const random = Math.floor(Math.random() * 100);
-    arr.push(random);
+  for (let i = 0; i < arr.length; i++) {
+    // const random = Math.floor(Math.random() * 100);
+    // arr.push(random);
     // 最大堆入队
-    maxheap.insert(random);
+    // maxheap.insert(random);
+    maxheap.insert(arr[i]);
   }
-  console.log('======== 原数组 ========' + '\n');
-  console.log(arr);
+  // console.log('======== 原数组 ========' + '\n');
+  // console.log(arr);
 
   maxheap.testPrint();
 
@@ -28,7 +29,7 @@ function testMaxHeap() {
     console.log(maxheap.extractMax());
   }
 }
-// testMaxHeap();
+testMaxHeap();
 
 // 堆排序
 function testHeapSort() {
@@ -41,4 +42,4 @@ function testHeapSort() {
   testSort('Heap Sort 3', heapSort3, arr);
 }
 
-testHeapSort();
+// testHeapSort();

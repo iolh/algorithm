@@ -59,3 +59,6 @@ export function heapSort3<T>(arr: T[]): void {
     __shiftDown(arr, i, 0);
   }
 }
+
+// heapSort1中逐渐将元素插入到堆中的方式，其时间复杂度是O(nlogn)的；
+// 但是heapSort2中反向从第一个非叶子节点倒序不断ShiftDown的过程，最终也创建了一个堆，但是其时间复杂度是O(n)的
