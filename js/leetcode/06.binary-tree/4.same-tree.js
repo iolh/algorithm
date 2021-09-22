@@ -1,5 +1,5 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
-
+"use strict";
+// 100: https://leetcode-cn.com/problems/same-tree/
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -13,5 +13,4 @@
  *     }
  * }
  */
-
-function rightSideView(root: TreeNode | null): number[] {}
+function isSameTree(p, q) { }

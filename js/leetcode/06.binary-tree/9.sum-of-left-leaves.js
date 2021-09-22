@@ -1,5 +1,5 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
-
+"use strict";
+// 404: https://leetcode-cn.com/problems/sum-of-left-leaves/
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -13,5 +13,4 @@
  *     }
  * }
  */
-
-function rightSideView(root: TreeNode | null): number[] {}
+function sumOfLeftLeaves(root) { }

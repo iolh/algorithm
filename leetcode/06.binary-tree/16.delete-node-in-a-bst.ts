@@ -1,4 +1,4 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
+// 450: https://leetcode-cn.com/problems/delete-node-in-a-bst/
 
 /**
  * Definition for a binary tree node.
@@ -14,4 +14,4 @@
  * }
  */
 
-function rightSideView(root: TreeNode | null): number[] {}
+function deleteNode(root: TreeNode | null, key: number): TreeNode | null {}

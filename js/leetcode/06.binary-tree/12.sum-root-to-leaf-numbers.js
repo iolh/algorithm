@@ -1,5 +1,5 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
-
+"use strict";
+// 129: https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -13,5 +13,4 @@
  *     }
  * }
  */
-
-function rightSideView(root: TreeNode | null): number[] {}
+function sumNumbers(root) { }

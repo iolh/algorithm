@@ -1,4 +1,4 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
+// 226: https://leetcode-cn.com/problems/invert-binary-tree/
 
 /**
  * Definition for a binary tree node.
@@ -14,4 +14,12 @@
  * }
  */
 
-function rightSideView(root: TreeNode | null): number[] {}
+function invertTree(root: TreeNode | null): TreeNode | null {
+  if (root === null) return null;
+
+  invertTree(root.left);
+  invertTree(root.right);
+  [root.left, root.right] = [root.right, root.left];
+
+  return root;
+}

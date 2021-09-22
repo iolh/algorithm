@@ -1,4 +1,4 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
+// 111: https://coding.imooc.com/lesson/82.html#mid=2681
 
 /**
  * Definition for a binary tree node.
@@ -14,4 +14,4 @@
  * }
  */
 
-function rightSideView(root: TreeNode | null): number[] {}
+function minDepth(root: TreeNode | null): number {}

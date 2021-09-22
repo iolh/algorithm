@@ -1,4 +1,4 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
+// 110: https://leetcode-cn.com/problems/balanced-binary-tree/
 
 /**
  * Definition for a binary tree node.
@@ -14,4 +14,4 @@
  * }
  */
 
-function rightSideView(root: TreeNode | null): number[] {}
+function isBalanced(root: TreeNode | null): boolean {}

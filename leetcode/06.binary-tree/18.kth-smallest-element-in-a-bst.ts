@@ -1,4 +1,4 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
+// 230: https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/
 
 /**
  * Definition for a binary tree node.
@@ -14,4 +14,4 @@
  * }
  */
 
-function rightSideView(root: TreeNode | null): number[] {}
+function kthSmallest(root: TreeNode | null, k: number): number {}

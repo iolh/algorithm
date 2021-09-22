@@ -1,5 +1,5 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
-
+"use strict";
+// 104: https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -13,5 +13,12 @@
  *     }
  * }
  */
-
-function rightSideView(root: TreeNode | null): number[] {}
+function maxDepth(root) {
+    if (root === null) {
+        return 0;
+    }
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    // let leftMaxDepth = maxDepth(root.left);
+    // let rightMaxDepth = maxDepth(root.right);
+    // return Math.max(leftMaxDepth, rightMaxDepth) + 1;
+}

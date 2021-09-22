@@ -1,5 +1,5 @@
-// 199: https://leetcode-cn.com/problems/binary-tree-right-side-view/
-
+"use strict";
+// 112: https://leetcode-cn.com/problems/path-sum/
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -13,5 +13,13 @@
  *     }
  * }
  */
-
-function rightSideView(root: TreeNode | null): number[] {}
+function hasPathSum(root, targetSum) {
+    if (root === null) {
+        return false;
+    }
+    if (root.left === null && root.right === null) {
+        return root.val === targetSum;
+    }
+    return (hasPathSum(root.left, targetSum - root.val) ||
+        hasPathSum(root.right, targetSum - root.val));
+}
